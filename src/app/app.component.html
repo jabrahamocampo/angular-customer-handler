@@ -1,0 +1,30 @@
+<nav>
+	<div>
+		<a href="/">Home</a>
+	</div>
+</nav>
+<br />
+<span> {{title}} </span>
+
+<div>
+	<div id="list">
+		<ul>
+			<li 
+				*ngFor="let customer of customersArray" 
+				(click) = "openEdit(customer)">
+				<span>{{customer.id}}</span>.- {{customer.name}} - {{customer.address}}
+			</li>
+		</ul>
+	</div>
+	<br/>
+	<div id="card">
+		Insert a new customer
+	</div>
+	<div>
+		<input type="text" [(ngModel)]="selectedCustomer.name" placeholder="Insert a name"><br/><br/> 
+		<input type="text" [(ngModel)]="selectedCustomer.email" placeholder="Insert a email"><br/><br/>
+		<input type="text" [(ngModel)]="selectedCustomer.address" placeholder="Insert a address">
+	</div>
+	<button (click) = "addOrEdit()">Submit</button>
+	<button (click) = "delete()">Delete</button>		
+</div>
